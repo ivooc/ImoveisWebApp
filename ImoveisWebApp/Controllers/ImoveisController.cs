@@ -4,7 +4,7 @@ namespace ImoveisWebApp.Controllers
 {
     public class ImoveisController : Controller
     {
-        // GET: Imoveis
+        // GET: Imoveis/Listar
         public ActionResult Listar()
         {
             return View();
