@@ -2,7 +2,7 @@
 {
     public class Imovel
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public int Tipo { get; set; }
         public string ValorVenda { get; set; }
         public string ValorLocacao { get; set; }
