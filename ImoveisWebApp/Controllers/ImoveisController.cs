@@ -10,8 +10,8 @@ namespace ImoveisWebApp.Controllers
             return View();
         }
 
-        // GET: Imoveis/Detalhes/5
-        public ActionResult Detalhes(int id)
+        // GET: Imoveis/Detalhar/5
+        public ActionResult Detalhar(int id)
         {
             return View();
         }
