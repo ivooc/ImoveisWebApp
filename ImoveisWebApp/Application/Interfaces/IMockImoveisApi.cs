@@ -12,12 +12,12 @@ namespace ImoveisWebApp.Application.Interfaces
         Task<Imovel> ObterImovelPorIdAsync([Path] int id);
 
         [Post("v1/imoveis")]
-        Task<int> CadastrarImovelAsync([Body] Imovel imovel);
+        Task<Imovel> CadastrarImovelAsync([Body] Imovel imovel);
 
         [Put("v1/imoveis/{id}")]
-        Task AlterarImovelPorIdAsync([Path] int id);
+        Task<Imovel> AlterarImovelPorIdAsync([Path] int id, [Body] Imovel imovel);
 
         [Delete("v1/imoveis/{id}")]
-        Task RemoverImovelPorIdAsync([Path] int id);
+        Task<Imovel> RemoverImovelPorIdAsync([Path] int id);
     }
 }

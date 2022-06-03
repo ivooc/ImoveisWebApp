@@ -36,11 +36,12 @@ namespace ImoveisWebApp.Controllers
         // POST: Imoveis/Cadastrar
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Cadastrar(IFormCollection collection)
+        public async Task<ActionResult> Cadastrar(Imovel imovel)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                await _mockImoveisApi.CadastrarImovelAsync(imovel);
+                return RedirectToAction(nameof(Listar));
             }
             catch
             {
@@ -49,19 +50,20 @@ namespace ImoveisWebApp.Controllers
         }
 
         // GET: Imoveis/Alterar/5
-        public ActionResult Alterar(int id)
+        public async Task<ActionResult> Alterar(int id)
         {
-            return View();
+            return await Detalhes(id);
         }
 
         // POST: Imoveis/Alterar/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Alterar(int id, IFormCollection collection)
+        public async Task<ActionResult> Alterar(int id, Imovel imovel)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                await _mockImoveisApi.AlterarImovelPorIdAsync(id, imovel);
+                return RedirectToAction(nameof(Listar));
             }
             catch
             {
@@ -70,19 +72,20 @@ namespace ImoveisWebApp.Controllers
         }
 
         // GET: Imoveis/Excluir/5
-        public ActionResult Excluir(int id)
+        public async Task<ActionResult> Excluir(int id)
         {
-            return View();
+            return await Detalhes(id);
         }
 
         // POST: Imoveis/Excluir/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Excluir(int id, IFormCollection collection)
+        public async Task<ActionResult> Excluir(int id, IFormCollection collection)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                await _mockImoveisApi.RemoverImovelPorIdAsync(id);
+                return RedirectToAction(nameof(Listar));
             }
             catch
             {
