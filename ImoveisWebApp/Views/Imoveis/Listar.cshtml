@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ImoveisWebApp.Models.Imovel>
 
 @{
-    ViewData["Title"] = "Imóveis";
+    ViewData["Title"] = "Listar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -14,37 +14,25 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
+                ID
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Tipo)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ValorVenda)
+                Endereço
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ValorLocacao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Endereco)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Numero)
+                Número
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Complemento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Bairro)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Cidade)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Estado)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cep)
             </th>
             <th></th>
         </tr>
@@ -59,12 +47,6 @@
                 @Html.DisplayFor(modelItem => item.Tipo)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ValorVenda)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ValorLocacao)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Endereco)
             </td>
             <td>
@@ -74,21 +56,15 @@
                 @Html.DisplayFor(modelItem => item.Complemento)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Bairro)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Cidade)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Estado)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Cep)
-            </td>
-            <td>
-                @Html.ActionLink("Alterar", "Alterar", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Detalhes", "Detalhes", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Excluir", "Excluir", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Alterar", "Alterar", new { id = item.Id }) |
+                @Html.ActionLink("Detalhes", "Detalhes", new { id = item.Id }) |
+                @Html.ActionLink("Excluir", "Excluir", new { id = item.Id })
             </td>
         </tr>
 }
