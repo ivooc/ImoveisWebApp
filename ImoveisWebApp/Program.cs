@@ -1,7 +1,12 @@
+using ImoveisWebApp.Application.Interfaces;
+using RestEase.HttpClientFactory;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddRestEaseClient<IMockImoveisApi>(builder.Configuration["MockImoveisApiUrlPath"]);
 
 var app = builder.Build();
 
