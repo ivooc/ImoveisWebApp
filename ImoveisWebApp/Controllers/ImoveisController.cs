@@ -1,19 +1,30 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ImoveisWebApp.Application.Interfaces;
+using ImoveisWebApp.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ImoveisWebApp.Controllers
 {
     public class ImoveisController : Controller
     {
-        // GET: Imoveis/Listar
-        public ActionResult Listar()
+        private readonly IMockImoveisApi _mockImoveisApi;
+
+        public ImoveisController(IMockImoveisApi mockImoveisApi)
         {
-            return View();
+            _mockImoveisApi = mockImoveisApi;
         }
 
-        // GET: Imoveis/Detalhar/5
-        public ActionResult Detalhar(int id)
+        // GET: Imoveis/Listar
+        public async Task<ActionResult> Listar()
         {
-            return View();
+            var imoveis = await _mockImoveisApi.ObterTodosOsImoveisAsync();
+            return View(imoveis);
+        }
+
+        // GET: Imoveis/Detalhes/5
+        public async Task<ActionResult> Detalhes(int id)
+        {
+            var imovel = await _mockImoveisApi.ObterImovelPorIdAsync(id);
+            return View(imovel);
         }
 
         // GET: Imoveis/Cadastrar
@@ -58,16 +69,16 @@ namespace ImoveisWebApp.Controllers
             }
         }
 
-        // GET: Imoveis/Remover/5
-        public ActionResult Remover(int id)
+        // GET: Imoveis/Excluir/5
+        public ActionResult Excluir(int id)
         {
             return View();
         }
 
-        // POST: Imoveis/Remover/5
+        // POST: Imoveis/Excluir/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Remover(int id, IFormCollection collection)
+        public ActionResult Excluir(int id, IFormCollection collection)
         {
             try
             {
