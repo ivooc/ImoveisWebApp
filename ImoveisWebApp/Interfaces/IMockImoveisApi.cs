@@ -1,7 +1,7 @@
 ﻿using ImoveisWebApp.Models;
 using RestEase;
 
-namespace ImoveisWebApp.Application.Interfaces
+namespace ImoveisWebApp.Interfaces
 {
     public interface IMockImoveisApi
     {

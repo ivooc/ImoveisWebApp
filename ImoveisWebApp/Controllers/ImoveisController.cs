@@ -1,4 +1,4 @@
-﻿using ImoveisWebApp.Application.Interfaces;
+﻿using ImoveisWebApp.Interfaces;
 using ImoveisWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 
